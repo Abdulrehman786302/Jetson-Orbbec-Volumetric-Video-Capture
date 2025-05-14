@@ -98,7 +98,7 @@ This guide outlines the steps to set up a **Jetson Nano** (4GB/2GB) using **Rufu
 
 ## 🔧 Jetson Nano Setup with Orbbec SDK
 
-To set up your Jetson Nano with Orbbec K4A SDK support: first set you password of jetson in file.
+To set up your Jetson Nano with Orbbec K4A SDK support: first set your password of jetson inside file.
 
 1. Clone the repository.
 2. Run the setup script:
@@ -136,7 +136,7 @@ This script sets up a **dummy display** on Jetson devices in **headless mode**. 
 
 ### 🔧 Installation & Usage
 
-To use the script, follow these steps: first set you password of jetson in file.
+To use the script, follow these steps: first set your password of jetson inside file.
 
 1. **Make the script executable:**
    ```bash
