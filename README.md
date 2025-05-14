@@ -142,4 +142,27 @@ To use the script, follow these steps:
 1. **Make the script executable:**
    ```bash
    sudo chmod +x setup_dummy_display.sh
+   sudo ./setup_dummy_display.sh
     ```
+
+## 🌐 Jetson Display to Master Machine Using NoMachine
+
+You can use **NoMachine** to access the display of your Jetson device remotely from another machine. Follow the steps below to set it up:
+
+### 1. Download and Install NoMachine for Jetson
+
+To download and install NoMachine, run the following commands on your Jetson device:
+
+```bash
+# Download NoMachine for Jetson (ARM)
+wget https://download.nomachine.com/download/8.16/Arm/nomachine_8.16.1_1_arm64.deb
+
+# Install NoMachine
+sudo dpkg -i nomachine_8.16.1_1_arm64.deb
+sudo apt-get install -f  # Fix dependencies if needed
+
+# Check NoMachine server status
+sudo /usr/NX/bin/nxserver --status
+
+```
+
