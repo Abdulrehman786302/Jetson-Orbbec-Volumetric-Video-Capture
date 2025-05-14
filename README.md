@@ -107,7 +107,7 @@ To set up your Jetson Nano with Orbbec K4A SDK support:
 ```bash
 chmod +x setup_orbbec.sh
 ./setup_orbbec.sh
-
+```
 
 ## 🔧 Azure Kinect SDK Setup (Jetson)
 
@@ -119,7 +119,7 @@ To build the Azure Kinect Sensor SDK on Jetson:
 ```bash
 chmod +x install_kinect_sdk.sh
 ./install_kinect_sdk.sh
-
+```
 
 
 ## 🔧 Dummy Display Setup for Headless Jetson
@@ -142,3 +142,4 @@ To use the script, follow these steps:
 1. **Make the script executable:**
    ```bash
    sudo chmod +x setup_dummy_display.sh
+    ```
