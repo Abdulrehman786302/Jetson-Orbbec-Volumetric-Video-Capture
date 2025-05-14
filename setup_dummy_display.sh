@@ -2,7 +2,7 @@
 set -e
 
 # WARNING: Hardcoding passwords is insecure. Use only in trusted, local environments.
-PASSWORD="962931"
+PASSWORD=""
 
 # Function to run sudo commands with password
 sudo_cmd() {
