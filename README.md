@@ -96,4 +96,49 @@ This guide outlines the steps to set up a **Jetson Nano** (4GB/2GB) using **Rufu
 - **Update system**: Run the following commands to ensure everything is up-to-date:
   ```bash
   sudo apt update && sudo apt upgrade
-'''
+
+## 🔧 Jetson Nano Setup with Orbbec SDK
+
+To set up your Jetson Nano with Orbbec K4A SDK support:
+
+1. Clone the repository.
+2. Run the setup script:
+
+```bash
+chmod +x setup_orbbec.sh
+./setup_orbbec.sh
+
+
+## 🔧 Azure Kinect SDK Setup (Jetson)
+
+To build the Azure Kinect Sensor SDK on Jetson:
+
+1. Update the `USER_NAME` and `DOWNLOAD_DIR` variables in the script.
+2. Run:
+
+```bash
+chmod +x install_kinect_sdk.sh
+./install_kinect_sdk.sh
+
+
+
+## 🔧 Dummy Display Setup for Headless Jetson
+
+### 📋 Overview
+
+This script sets up a **dummy display** on Jetson devices in **headless mode**. It is particularly useful when you're running a Jetson without a physical monitor but need to configure X11 (e.g., for remote desktop solutions or GPU-related tasks).
+
+### ⚙️ Features
+
+- **Installs `xserver-xorg-video-dummy`** if not already installed.
+- **Clears and writes** the `/etc/X11/xorg.conf` file with a dummy display configuration.
+- **Handles sudo with a predefined password** (replace with your own for security).
+- Optional: You can choose whether to enable the dummy display during setup.
+
+### 🔧 Installation & Usage
+
+To use the script, follow these steps:
+
+1. **Make the script executable:**
+   ```bash
+   sudo chmod +x setup_dummy_display.sh
