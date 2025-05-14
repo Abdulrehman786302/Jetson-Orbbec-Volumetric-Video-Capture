@@ -61,7 +61,6 @@ This guide outlines the steps to set up a **Jetson Nano** (4GB/2GB) using **Rufu
 - **microSD card reader** for your Windows PC
 - **Rufus tool**: [Download here](https://rufus.ie/)
 - **JetPack SD card image** for Jetson Nano:  
-   - [JetPack SDK Downloads](https://developer.nvidia.com/jetson-nano-sd-card-image) 
 
 ## 🛠️ Step-by-Step Instructions
 
@@ -166,3 +165,22 @@ sudo /usr/NX/bin/nxserver --status
 
 ```
 
+## Remote Access to Jetson Using NoMachine (Windows)
+
+This guide explains how to install NoMachine on a Windows PC and connect to a Jetson device on the same Ethernet network.
+### 📦 Requirements
+
+- Jetson and Windows PC connected to the **same Ethernet network**
+- NoMachine installed on **both** devices
+- Username and password of the Jetson device
+
+---
+
+### 🧰 Step 1: Download and Install NoMachine for Windows
+
+1. Visit the official download page:  
+   👉 https://www.nomachine.com/
+
+2. Download the **Windows version** of NoMachine.
+
+3. Run the installer and follow on-screen instructions to complete the installation.
