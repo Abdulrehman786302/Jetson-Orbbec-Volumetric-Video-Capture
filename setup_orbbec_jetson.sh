@@ -2,32 +2,39 @@
 set -e
 
 # WARNING: Hardcoding passwords is insecure. Use only in trusted, local environments.
-PASSWORD=""
+PASSWORD="962931"
 
 # Function to run sudo commands with password
 sudo_cmd() {
     echo "$PASSWORD" | sudo -S "$@"
 }
 
-# Update and install dependencies
-echo "[*] Installing system dependencies..."
-sudo_cmd apt update
-sudo_cmd apt-get install -y nano
-sudo_cmd apt install -y git build-essential cmake pkg-config libopencv-dev \
-    libssl-dev libxinerama-dev libvulkan-dev libxcursor-dev libjpeg-dev \
-    doxygen clang-format graphviz libudev-dev libsoundio-dev
+# Get absolute path to script directory before doing any cd
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CURRENT_USER=$(whoami)
 
-# STEP 1: Build Orbbec K4A Wrapper
+# STEP 0: Install dependencies
+echo "[*] Installing system dependencies..."
+sudo_cmd apt-get install -y nano
+sudo_cmd apt-get install -y libssl-dev libxinerama-dev libvulkan-dev libxcursor-dev \
+    libjpeg-dev doxygen clang-format graphviz libudev-dev libsoundio-dev
+
+# STEP 1: Clone and build Orbbec K4A Wrapper
 echo "[*] Cloning and building Orbbec K4A Wrapper..."
+cd "$SCRIPT_DIR"
 git clone https://github.com/orbbec/OrbbecSDK-K4A-Wrapper.git
 cd OrbbecSDK-K4A-Wrapper
-sed -i 's|add_subdirectory(streaming_samples)||g' examples/CMakeLists.txt || true
+
+# Comment out the full install() block in examples/CMakeLists.txt
+echo "[*] Commenting out install(TARGETS ...) block"
+sed -i '/install(TARGETS streaming_samples/,/)/ s/^/#/' examples/CMakeLists.txt
+
 mkdir -p build && cd build
 cmake ..
 make -j$(nproc)
-cd ../..
+cd "$SCRIPT_DIR"
 
-# STEP 2: Install udev rules
+# STEP 2: Install Orbbec udev rules
 echo "[*] Installing Orbbec udev rules..."
 git clone https://github.com/orbbec/OrbbecSDK_v2.git
 cd OrbbecSDK_v2/scripts/env_setup
@@ -35,5 +42,13 @@ chmod +x ./install_udev_rules.sh
 echo "$PASSWORD" | sudo -S ./install_udev_rules.sh
 sudo_cmd udevadm control --reload-rules
 sudo_cmd udevadm trigger
-cd ../../..
+cd "$SCRIPT_DIR"
 
+# STEP 3: Fix ownership and permissions
+echo "[*] Fixing ownership and permissions in $SCRIPT_DIR..."
+sudo_cmd chown -R "$CURRENT_USER:$CURRENT_USER" "$SCRIPT_DIR/OrbbecSDK-K4A-Wrapper" || echo "No OrbbecSDK-K4A-Wrapper folder"
+sudo_cmd chown -R "$CURRENT_USER:$CURRENT_USER" "$SCRIPT_DIR/OrbbecSDK_v2" || echo "No OrbbecSDK_v2 folder"
+sudo_cmd chmod -R u+rwX "$SCRIPT_DIR/OrbbecSDK-K4A-Wrapper" 2>/dev/null || true
+sudo_cmd chmod -R u+rwX "$SCRIPT_DIR/OrbbecSDK_v2" 2>/dev/null || true
+
+echo "[✓] Setup completed successfully."
