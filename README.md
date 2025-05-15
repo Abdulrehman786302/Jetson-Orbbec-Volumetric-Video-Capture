@@ -94,7 +94,7 @@ This guide outlines the steps to set up a **Jetson Nano** (4GB/2GB) using **Rufu
 - **Network**: Connect to Wi-Fi or Ethernet.
 - **Update system**: Run the following commands to ensure everything is up-to-date:
   ```bash
-  sudo apt update && sudo apt upgrade
+  sudo apt update 
 
 ## 🔧 Jetson Nano Setup with Orbbec SDK
 
@@ -104,7 +104,7 @@ To set up your Jetson Nano with Orbbec K4A SDK support: first set your password 
 2. Run the setup script:
 
 ```bash
-sudo chmod +x ./setup_orbbec.sh
+sudo chmod +x ./setup_orbbec_jetson.sh
 sudo ./setup_orbbec.sh
 ```
 
