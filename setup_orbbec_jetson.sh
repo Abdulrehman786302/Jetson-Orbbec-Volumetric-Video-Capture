@@ -44,11 +44,5 @@ sudo_cmd udevadm control --reload-rules
 sudo_cmd udevadm trigger
 cd "$SCRIPT_DIR"
 
-# STEP 3: Fix ownership and permissions
-echo "[*] Fixing ownership and permissions in $SCRIPT_DIR..."
-sudo_cmd chown -R "$CURRENT_USER:$CURRENT_USER" "$SCRIPT_DIR/OrbbecSDK-K4A-Wrapper" || echo "No OrbbecSDK-K4A-Wrapper folder"
-sudo_cmd chown -R "$CURRENT_USER:$CURRENT_USER" "$SCRIPT_DIR/OrbbecSDK_v2" || echo "No OrbbecSDK_v2 folder"
-sudo_cmd chmod -R u+rwX "$SCRIPT_DIR/OrbbecSDK-K4A-Wrapper" 2>/dev/null || true
-sudo_cmd chmod -R u+rwX "$SCRIPT_DIR/OrbbecSDK_v2" 2>/dev/null || true
 
 echo "[✓] Setup completed successfully."

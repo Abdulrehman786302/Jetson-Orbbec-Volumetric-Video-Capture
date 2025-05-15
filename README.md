@@ -105,7 +105,7 @@ To set up your Jetson Nano with Orbbec K4A SDK support: first set your password 
 
 ```bash
 sudo chmod +x ./setup_orbbec_jetson.sh
-sudo ./setup_orbbec.sh
+ ./setup_orbbec.sh
 ```
 
 ## 🔧 Azure Kinect SDK Setup (Jetson)
@@ -117,7 +117,7 @@ To build the Azure Kinect Sensor SDK on Jetson:
 
 ```bash
 sudo chmod +x ./install_kinect_sdk.sh
-sudo ./install_kinect_sdk.sh
+ ./install_kinect_sdk.sh
 ```
 
 
