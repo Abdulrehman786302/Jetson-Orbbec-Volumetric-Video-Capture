@@ -103,6 +103,19 @@ To set up your Jetson Nano with Orbbec K4A SDK support: first set your password 
 1. Clone the repository.
 2. Run the setup script:
 
+# Custom Parameters
+You can now set additional camera parameters during recording via the modified k4arecorder binary:
+
+--brightness <value>
+
+--contrast <value>
+
+--sharpness <value>
+
+Additional arguments can be added into the ` ./k4arecorder`  by updating ` tools/k4arecorder`  folder before ` build/bin/`  supports these parameters.
+
+You must update and build the SDK using your modified `tools/k4arecorder` folder.
+
 ```bash
 sudo chmod +x ./setup_orbbec_jetson.sh
  ./setup_orbbec.sh
