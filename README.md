@@ -1,4 +1,7 @@
-# Jetson-Orbbec/Kinect Volumetric Video Capture for Ithaca Project
+# Jetson-Orbbec/Kinect Volumetric Video Capture for [Ithaca Project](https://www.ithaca.eu/)
+
+This repository provides tools and scripts for synchronized volumetric video capture using Orbbec or Kinect cameras integrated with NVIDIA Jetson devices. It is developed to support the goals of the [Ithaca Project](https://www.ithaca.eu/), an initiative focused on embodied interaction and immersive media technologies.
+
 
 This project demonstrates how to integrate the **NVIDIA Jetson Nano** with **Orbbec Femto Mega/Bolt** and **Microsoft Kinects** cameras for synchronized, efficient volumetric video capture. Designed for scalable systems such as the *Ithaca* 9-camera setup, this solution minimizes frame drops, reduces bandwidth strain, and simplifies wiring using edge processing.
 
